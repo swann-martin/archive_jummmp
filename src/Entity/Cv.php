@@ -206,7 +206,7 @@ class Cv
         return $this;
     }
 
-    public function getphotoFile()
+    public function getPhotoFile()
     {
 
         return $this->photoFile;
@@ -223,5 +223,4 @@ class Cv
             $this->updatedAt = new \DateTime();
         }
     }
-
 }

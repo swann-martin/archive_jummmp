@@ -48,25 +48,25 @@ class CvController extends AbstractController
         // if ($form->isSubmitted() && $form->isValid()) {
 
 
-            $user = $security->getUser();
-            if (count($this->getUser()->getCvs()) < 3) {
+        $user = $security->getUser();
+        if (count($this->getUser()->getCvs()) < 3) {
 
-                $cv->setUserId($user);
-                $cv->setModel(1);
-                $cv->setTitle('Définis le titre de ton cv');
-                $cv->setJobCv('Inscris ton poste visé');
-                $cv->setAbout('Décris ton profil');
-                $cv->setShortUrl('');
-                
-                $cv->setPhoto('');
-        
-                $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($cv);
-                $entityManager->flush();
-            }
+            $cv->setUserId($user);
+            $cv->setModel(1);
+            $cv->setTitle('Définis le titre de ton cv');
+            $cv->setJobCv('Inscris ton poste visé');
+            $cv->setAbout('Décris ton profil');
+            $cv->setShortUrl('');
+
+            $cv->setPhoto('');
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($cv);
+            $entityManager->flush();
+
 
             return $this->redirectToRoute('cv_index');
-        // }
+        }
 
         return $this->render('cv/new.html.twig', [
             'cv' => $cv,
